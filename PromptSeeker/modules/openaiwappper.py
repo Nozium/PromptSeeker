@@ -1,16 +1,19 @@
 ## Use Open API
 import openai
+import time 
 
 import PromptSeeker.modules.config as CONFIG
 
+ORGANIZATION_ID = CONFIG.ORGANIZATION_ID
 API_KEY = CONFIG.COMMON_TOKEN
 MODERATE_CATEGORY_SCORE = CONFIG.MODERATE_CATEGORY_SCORE
 
 
 class OpenAIWrapper(object):
-    def __init__(self, api_key=API_KEY, engine="gpt-3.5-turbo", max_retry=3) -> None:
+    def __init__(self, api_key=API_KEY, organization_id = ORGANIZATION_ID,engine="gpt-3.5-turbo", max_retry=3) -> None:
         super().__init__()
         self.openai = openai
+        self.openai.organization = organization_id
         self.openai.api_key = api_key
         self.engine = engine
         self.max_retry = max_retry

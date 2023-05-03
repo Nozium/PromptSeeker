@@ -60,7 +60,7 @@ class PromptSeek(object):
 
     def save(
         self,
-        save_dir="./retults/prompt_seeks/",
+        save_dir="./results/prompt_seeks/",
         save_name="prompt_seek.json",
         with_goal=True,
     ):
